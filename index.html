@@ -17,8 +17,11 @@
     }
 
     body {
-      background: #f7f5f1;
-      color: #1f1f1f;
+      background:
+        radial-gradient(circle at top left, #dff6ff 0%, transparent 28%),
+        radial-gradient(circle at top right, #ffe3d6 0%, transparent 26%),
+        linear-gradient(180deg, #fffaf6 0%, #f8fbff 100%);
+      color: #24303a;
       line-height: 1.6;
     }
 
@@ -35,9 +38,9 @@
     .nav {
       position: sticky;
       top: 0;
-      background: rgba(247, 245, 241, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e6e0d6;
+      background: rgba(255, 250, 246, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148, 189, 209, 0.25);
       z-index: 10;
     }
 
@@ -49,21 +52,24 @@
     }
 
     .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #3d6790;
     }
 
     .nav-links {
       display: flex;
       gap: 24px;
-      font-size: 0.95rem;
-      color: #5b5b5b;
+      font-size: 0.96rem;
+      color: #587189;
     }
 
     .hero {
-      padding: 90px 0 70px;
-      background: linear-gradient(180deg, #f7f5f1 0%, #efe9de 100%);
+      padding: 95px 0 75px;
+      background:
+        linear-gradient(135deg, rgba(208, 238, 255, 0.85), rgba(255, 227, 214, 0.8)),
+        linear-gradient(180deg, #f7fbff 0%, #fff6f1 100%);
     }
 
     .hero-grid {
@@ -79,10 +85,11 @@
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #7a7469;
-      background: #ece6db;
-      padding: 8px 12px;
+      color: #6d5d9f;
+      background: #efe8ff;
+      padding: 8px 14px;
       border-radius: 999px;
+      font-weight: 700;
     }
 
     .hero h1 {
@@ -90,11 +97,12 @@
       line-height: 1.05;
       margin-bottom: 18px;
       max-width: 650px;
+      color: #24415f;
     }
 
     .hero p {
       font-size: 1.1rem;
-      color: #565656;
+      color: #4f6678;
       max-width: 560px;
       margin-bottom: 28px;
     }
@@ -108,73 +116,74 @@
 
     .btn {
       display: inline-block;
-      padding: 14px 22px;
+      padding: 14px 24px;
       border-radius: 999px;
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn-dark {
-      background: #1f1f1f;
-      color: #fff;
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
-    .btn-dark:hover {
-      opacity: 0.92;
+    .btn-primary {
+      background: linear-gradient(135deg, #6db7ff, #7c8cff);
+      color: white;
     }
 
-    .btn-light {
-      border: 1px solid #cfc6b8;
-      background: #fffaf2;
-      color: #1f1f1f;
+    .btn-secondary {
+      background: linear-gradient(135deg, #ffd1bf, #ffc9e6);
+      color: #4b3c44;
     }
 
     .hero-note {
       font-size: 0.92rem;
-      color: #7a7469;
+      color: #6f7f8f;
     }
 
     .hero-visual {
-      background: #ddd6c8;
-      border-radius: 32px;
+      background: linear-gradient(160deg, #b8ebff, #ffd8cf, #e9ddff);
+      border-radius: 34px;
       min-height: 500px;
       padding: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      box-shadow: 0 24px 60px rgba(86, 123, 160, 0.18);
     }
 
     .hero-visual-inner {
       width: 100%;
       height: 100%;
-      border: 2px dashed rgba(31,31,31,0.18);
+      border: 2px dashed rgba(36, 65, 95, 0.2);
       border-radius: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #5f5a51;
+      color: #38556e;
       padding: 24px;
       font-size: 1.05rem;
-      background: rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.45);
     }
 
     .section {
-      padding: 80px 0;
+      padding: 82px 0;
     }
 
     .section-title {
       font-size: 2.2rem;
       margin-bottom: 14px;
       text-align: center;
+      color: #28435e;
     }
 
     .section-subtitle {
       max-width: 760px;
       margin: 0 auto 42px;
       text-align: center;
-      color: #646464;
+      color: #5f7384;
       font-size: 1.02rem;
     }
 
@@ -185,20 +194,36 @@
     }
 
     .card {
-      background: #fff;
       padding: 26px;
       border-radius: 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
-      border: 1px solid #efe8dd;
+      box-shadow: 0 14px 32px rgba(77, 115, 150, 0.08);
+      border: 1px solid rgba(255,255,255,0.75);
+    }
+
+    .card:nth-child(1) {
+      background: linear-gradient(180deg, #e5f6ff, #f7fdff);
+    }
+
+    .card:nth-child(2) {
+      background: linear-gradient(180deg, #fff0e8, #fff9f6);
+    }
+
+    .card:nth-child(3) {
+      background: linear-gradient(180deg, #eefce9, #fbfff8);
+    }
+
+    .card:nth-child(4) {
+      background: linear-gradient(180deg, #f1ebff, #fbf9ff);
     }
 
     .card h3 {
       margin-bottom: 12px;
       font-size: 1.15rem;
+      color: #2d4a63;
     }
 
     .card p {
-      color: #666;
+      color: #617789;
       font-size: 0.98rem;
     }
 
@@ -210,20 +235,28 @@
     }
 
     .panel {
-      background: #fff;
       border-radius: 28px;
       padding: 34px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
-      border: 1px solid #efe8dd;
+      box-shadow: 0 14px 30px rgba(77, 115, 150, 0.08);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .panel:first-child {
+      background: linear-gradient(180deg, #ffffff, #f5fbff);
+    }
+
+    .panel:last-child {
+      background: linear-gradient(180deg, #fffdfb, #fff1ea);
     }
 
     .panel h3 {
       font-size: 1.5rem;
       margin-bottom: 14px;
+      color: #28435e;
     }
 
     .panel p {
-      color: #616161;
+      color: #5f7384;
       margin-bottom: 16px;
     }
 
@@ -236,8 +269,9 @@
     .bullet {
       padding: 14px 16px;
       border-radius: 16px;
-      background: #f8f4ed;
-      color: #4e4e4e;
+      color: #466074;
+      font-weight: 500;
+      background: rgba(255,255,255,0.72);
     }
 
     .stats {
@@ -248,30 +282,48 @@
     }
 
     .stat {
-      background: #fff;
-      padding: 24px;
-      border-radius: 22px;
+      padding: 26px;
+      border-radius: 24px;
       text-align: center;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
-      border: 1px solid #efe8dd;
+      box-shadow: 0 14px 30px rgba(77, 115, 150, 0.08);
+      border: 1px solid rgba(255,255,255,0.75);
+      background: white;
+    }
+
+    .stat:nth-child(1) {
+      background: linear-gradient(180deg, #e7f5ff, #ffffff);
+    }
+
+    .stat:nth-child(2) {
+      background: linear-gradient(180deg, #fff0e6, #ffffff);
+    }
+
+    .stat:nth-child(3) {
+      background: linear-gradient(180deg, #f1ebff, #ffffff);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       margin-bottom: 8px;
+      color: #2d4a63;
+    }
+
+    .stat span {
+      color: #667b8d;
     }
 
     .cta-section {
-      padding: 90px 0;
+      padding: 95px 0;
     }
 
     .cta-box {
-      background: #1f1f1f;
+      background: linear-gradient(135deg, #6ebcff, #8c82ff, #ffbfa9);
       color: #fff;
-      border-radius: 30px;
-      padding: 50px 36px;
+      border-radius: 32px;
+      padding: 52px 36px;
       text-align: center;
+      box-shadow: 0 24px 60px rgba(92, 108, 194, 0.2);
     }
 
     .cta-box h2 {
@@ -280,15 +332,20 @@
     }
 
     .cta-box p {
-      color: #d3d3d3;
+      color: rgba(255,255,255,0.92);
       max-width: 700px;
       margin: 0 auto 24px;
+    }
+
+    .cta-box .btn-secondary {
+      background: #ffffff;
+      color: #4b5d74;
     }
 
     footer {
       padding: 28px 0 40px;
       text-align: center;
-      color: #7a7a7a;
+      color: #6f8191;
       font-size: 0.92rem;
     }
 
@@ -356,8 +413,8 @@
         </p>
 
         <div class="cta-row">
-          <a href="#features" class="btn btn-dark">Explore Aria</a>
-          <a href="#vision" class="btn btn-light">See the Vision</a>
+          <a href="#features" class="btn btn-primary">Explore Aria</a>
+          <a href="#vision" class="btn btn-secondary">See the Vision</a>
         </div>
 
         <div class="hero-note">
@@ -367,7 +424,7 @@
 
       <div class="hero-visual">
         <div class="hero-visual-inner">
-          Replace this area with a stroller render, concept image, or brand mockup of Aria.
+          Replace this area with a stroller render, concept image, or branded mockup of Aria.
         </div>
       </div>
     </div>
@@ -475,7 +532,7 @@
         <p>
           This landing page is a visual concept designed for pitch presentation, brand storytelling, and early product positioning.
         </p>
-        <a href="#" class="btn btn-light">Contact / Investor Interest</a>
+        <a href="#" class="btn btn-secondary">Contact / Investor Interest</a>
       </div>
     </div>
   </section>
