@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aria | Premium Climate-Control Stroller</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f5f1;
+      color: #1f1f1f;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 245, 241, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e6e0d6;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: #5b5b5b;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(180deg, #f7f5f1 0%, #efe9de 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a7469;
+      background: #ece6db;
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .hero h1 {
+      font-size: 3.6rem;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      max-width: 650px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #565656;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-dark {
+      background: #1f1f1f;
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      opacity: 0.92;
+    }
+
+    .btn-light {
+      border: 1px solid #cfc6b8;
+      background: #fffaf2;
+      color: #1f1f1f;
+    }
+
+    .hero-note {
+      font-size: 0.92rem;
+      color: #7a7469;
+    }
+
+    .hero-visual {
+      background: #ddd6c8;
+      border-radius: 32px;
+      min-height: 500px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .hero-visual-inner {
+      width: 100%;
+      height: 100%;
+      border: 2px dashed rgba(31,31,31,0.18);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #5f5a51;
+      padding: 24px;
+      font-size: 1.05rem;
+      background: rgba(255,255,255,0.28);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+      color: #646464;
+      font-size: 1.02rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 26px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      border: 1px solid #efe8dd;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 0.98rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: #fff;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      border: 1px solid #efe8dd;
+    }
+
+    .panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: #616161;
+      margin-bottom: 16px;
+    }
+
+    .bullets {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .bullet {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #f8f4ed;
+      color: #4e4e4e;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      background: #fff;
+      padding: 24px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      border: 1px solid #efe8dd;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .cta-section {
+      padding: 90px 0;
+    }
+
+    .cta-box {
+      background: #1f1f1f;
+      color: #fff;
+      border-radius: 30px;
+      padding: 50px 36px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: #d3d3d3;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: #7a7a7a;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .features,
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.9rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .split,
+      .features,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="logo">ARIA</div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#vision">Vision</a>
+        <a href="#positioning">Positioning</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Premium stroller concept</div>
+        <h1>Comfort, climate, and design — reimagined for modern parents.</h1>
+        <p>
+          Aria is a next-generation stroller concept built around a simple idea:
+          babies should ride in comfort, and parents should never have to choose
+          between performance, style, and peace of mind.
+        </p>
+
+        <div class="cta-row">
+          <a href="#features" class="btn btn-dark">Explore Aria</a>
+          <a href="#vision" class="btn btn-light">See the Vision</a>
+        </div>
+
+        <div class="hero-note">
+          Presentation landing page for pitch and brand storytelling.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-inner">
+          Replace this area with a stroller render, concept image, or brand mockup of Aria.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="features">
+    <div class="container">
+      <h2 class="section-title">Why Aria stands out</h2>
+      <p class="section-subtitle">
+        Aria is positioned as a premium stroller brand focused on elevated design,
+        baby comfort, and differentiated product innovation.
+      </p>
+
+      <div class="features">
+        <div class="card">
+          <h3>Climate-Focused Comfort</h3>
+          <p>
+            Built around the idea of integrated airflow, ventilation, and temperature-conscious comfort for the child.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Luxury Brand Aesthetic</h3>
+          <p>
+            Clean lines, premium materials, and a polished visual identity designed to stand out in a crowded market.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Parent-Centered Utility</h3>
+          <p>
+            A concept shaped by everyday parenting realities: movement, convenience, ease, and confidence.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Category Differentiation</h3>
+          <p>
+            Aria is not just another stroller — it aims to create a more premium and comfort-led experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vision">
+    <div class="container split">
+      <div class="panel">
+        <h3>The problem</h3>
+        <p>
+          Many strollers compete on convenience and appearance, but fewer are built around the full comfort experience of the child.
+        </p>
+        <p>
+          Parents are often left choosing between style, practicality, and premium feel instead of getting all three in one product.
+        </p>
+        <div class="bullets">
+          <div class="bullet">Traditional stroller options can feel functionally similar.</div>
+          <div class="bullet">Heat, airflow, and comfort are pain points for many parents.</div>
+          <div class="bullet">Premium buyers want innovation that feels meaningful, not cosmetic.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>The Aria solution</h3>
+        <p>
+          Aria introduces a more elevated vision for stroller design: a product concept that blends premium branding with real comfort-focused innovation.
+        </p>
+        <p>
+          The goal is to create a stroller that feels aspirational, practical, and clearly different from what parents already see in the market.
+        </p>
+        <div class="bullets">
+          <div class="bullet">Comfort-forward product storytelling</div>
+          <div class="bullet">Premium positioning with modern design language</div>
+          <div class="bullet">A pitch-ready concept with clear visual differentiation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="positioning">
+    <div class="container">
+      <h2 class="section-title">Brand positioning</h2>
+      <p class="section-subtitle">
+        Aria is designed to sit at the intersection of innovation, comfort, and luxury.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>Premium</strong>
+          <span>Luxury-forward visual identity</span>
+        </div>
+        <div class="stat">
+          <strong>Modern</strong>
+          <span>Built for today’s parent lifestyle</span>
+        </div>
+        <div class="stat">
+          <strong>Distinct</strong>
+          <span>A differentiated stroller concept</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Aria is built for the next generation of premium baby mobility.</h2>
+        <p>
+          This landing page is a visual concept designed for pitch presentation, brand storytelling, and early product positioning.
+        </p>
+        <a href="#" class="btn btn-light">Contact / Investor Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Aria. Concept landing page for pitch use.
+  </footer>
+</body>
+</html>
