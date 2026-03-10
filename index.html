@@ -6,38 +6,35 @@
   <title>Aria — Comfort in Every Climate</title>
   <style>
     :root {
-      --lavender: #eadcf0;
-      --lavender-deep: #c8a8d8;
-      --mint-grid: #edf5ee;
-      --mint-line: #d9e8db;
-      --sky: #7db7e8;
-      --rose: #f2969e;
-      --sage: #8f9b7d;
+      --bg1: #f6eef8;
+      --bg2: #eef5f0;
       --ink: #2f2a30;
+      --lavender: #caa6db;
+      --sky: #84b9e7;
+      --sage: #8f9b7d;
+      --rose: #f2969e;
       --white: #ffffff;
-      --cloud: rgba(255,255,255,0.68);
       --card: rgba(255,255,255,0.78);
-      --shadow: 0 20px 60px rgba(111, 83, 128, 0.14);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
+      --shadow: 0 20px 50px rgba(111, 83, 128, 0.14);
       --max: 1180px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--ink);
       background:
-        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
-        linear-gradient(180deg, #f7f1fa 0%, #eef5f0 46%, #f8edf3 100%);
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 52%, #f9edf3 100%);
       background-size: 32px 32px, 32px 32px, 100% 100%;
       font-family: "The Seasons", Georgia, "Times New Roman", serif;
-      overflow-x: hidden;
+    }
+
+    h1, h2, h3, p, a, li, input, button {
+      font-family: "The Seasons", Georgia, "Times New Roman", serif;
     }
 
     img { max-width: 100%; display: block; }
@@ -48,824 +45,546 @@
       margin: 0 auto;
     }
 
-    .floating-shapes,
-    .floating-shapes::before,
-    .floating-shapes::after {
-      position: absolute;
-      pointer-events: none;
-    }
-
-    .floating-shapes {
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .flower,
-    .spark,
-    .blob,
-    .pacifier {
-      position: absolute;
-      opacity: 0.95;
-    }
-
-    .flower {
-      width: 42px;
-      aspect-ratio: 1;
-      background: radial-gradient(circle at center, transparent 28%, currentColor 30% 31%, transparent 32%),
-        radial-gradient(circle at 50% 0%, currentColor 0 22%, transparent 23%),
-        radial-gradient(circle at 100% 50%, currentColor 0 22%, transparent 23%),
-        radial-gradient(circle at 50% 100%, currentColor 0 22%, transparent 23%),
-        radial-gradient(circle at 0% 50%, currentColor 0 22%, transparent 23%),
-        radial-gradient(circle at 18% 18%, currentColor 0 20%, transparent 21%),
-        radial-gradient(circle at 82% 18%, currentColor 0 20%, transparent 21%),
-        radial-gradient(circle at 82% 82%, currentColor 0 20%, transparent 21%),
-        radial-gradient(circle at 18% 82%, currentColor 0 20%, transparent 21%);
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.08));
-    }
-
-    .spark {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.75) 0 25%, transparent 28%),
-      conic-gradient(from 0deg, #f2c94c, #f2969e, #7db7e8, #c8a8d8, #f2c94c);
-      -webkit-mask: radial-gradient(circle, transparent 0 28%, #000 30%);
-              mask: radial-gradient(circle, transparent 0 28%, #000 30%);
-      opacity: 0.5;
-    }
-
-    .blob {
-      border-radius: 999px;
-      background: rgba(255,255,255,0.55);
-      filter: blur(2px);
-    }
-
-    .pacifier {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 32% 32%, #c9b8db 0 18%, #ddd2ea 20%, transparent 22%),
-                  radial-gradient(circle at 50% 60%, #8d9a7f 0 17%, #a8b29a 18%, #c8d0c1 28%, transparent 29%),
-                  radial-gradient(circle at 24% 68%, #dfb4ac 0 13%, transparent 15%);
-      transform: rotate(-24deg);
-      opacity: 0.75;
-    }
-
-    .section {
-      position: relative;
-      padding: 84px 0;
-      z-index: 1;
-    }
-
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(255,255,255,0.62);
-      border-bottom: 1px solid rgba(143,155,125,0.12);
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
     .nav-inner {
+      min-height: 76px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      min-height: 76px;
-      gap: 24px;
+      gap: 20px;
     }
 
     .brand {
       display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, #a892c6, #7d88ab);
-      color: white;
-      box-shadow: var(--shadow);
-      font-size: 20px;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .aria-logo {
       font-family: "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
-      font-size: clamp(2rem, 3vw, 2.9rem);
+      font-size: 2.4rem;
       line-height: 1;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+      color: #5f5271;
     }
 
     .brand-sub {
-      font-size: 0.88rem;
-      opacity: 0.72;
-      margin-top: 2px;
+      font-size: 0.95rem;
+      opacity: 0.75;
     }
 
     .nav-links {
       display: flex;
+      gap: 20px;
       align-items: center;
-      gap: 22px;
-      font-size: 0.98rem;
+      flex-wrap: wrap;
     }
-
-    .nav-links a { opacity: 0.84; }
-    .nav-links a:hover { opacity: 1; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 22px;
+      min-height: 50px;
+      padding: 0 20px;
       border-radius: 999px;
       border: 1px solid transparent;
-      font-size: 1rem;
-      transition: 180ms ease;
       box-shadow: var(--shadow);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #caa6db, #84b9e7);
-      color: white;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.72);
-      border-color: rgba(143,155,125,0.18);
+      transition: transform 0.15s ease;
     }
 
     .btn:hover { transform: translateY(-2px); }
 
+    .btn-primary {
+      background: linear-gradient(135deg, var(--lavender), var(--sky));
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.82);
+      border-color: rgba(0,0,0,0.08);
+    }
+
     .hero {
-      padding-top: 52px;
-      min-height: calc(100vh - 76px);
-      display: flex;
-      align-items: center;
+      padding: 80px 0 50px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 36px;
+      gap: 32px;
       align-items: center;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      display: inline-block;
       padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.66);
+      background: rgba(255,255,255,0.75);
       box-shadow: var(--shadow);
       font-size: 0.95rem;
     }
 
-    h1, h2, h3, p, li, input, textarea, button, span, label {
-      font-family: "The Seasons", Georgia, "Times New Roman", serif;
-    }
-
     h1 {
-      margin: 18px 0 16px;
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      margin: 18px 0 14px;
+      font-size: clamp(3rem, 7vw, 5.6rem);
       line-height: 0.95;
       letter-spacing: -0.03em;
     }
 
-    .hero p {
-      font-size: 1.18rem;
-      line-height: 1.75;
-      max-width: 640px;
-      opacity: 0.9;
+    .hero p,
+    .section-copy,
+    .card p,
+    li {
+      font-size: 1.06rem;
+      line-height: 1.8;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(143,155,125,0.14);
-      border-radius: var(--radius-md);
-      padding: 18px;
+    .hero-card,
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 28px;
       box-shadow: var(--shadow);
     }
 
-    .stat strong {
-      display: block;
-      font-size: 1.7rem;
-      margin-bottom: 6px;
-    }
-
-    .hero-visual {
+    .hero-card {
+      padding: 26px;
+      min-height: 520px;
       position: relative;
-      min-height: 620px;
-    }
-
-    .cloud-card {
-      position: absolute;
-      inset: 70px 18px 70px 18px;
-      border-radius: 38px;
-      padding: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.82));
-      border: 1px solid rgba(255,255,255,0.7);
-      box-shadow: var(--shadow);
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.72));
     }
 
-    .cloud-shape {
-      position: absolute;
-      top: 12px;
-      left: 40px;
-      right: 40px;
-      height: 142px;
-      background: rgba(255,255,255,0.7);
+    .cloud {
+      width: 100%;
+      height: 150px;
+      background: rgba(255,255,255,0.92);
       border-radius: 999px;
-      filter: blur(0.2px);
+      position: relative;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
     }
 
-    .cloud-shape::before,
-    .cloud-shape::after {
+    .cloud::before,
+    .cloud::after {
       content: "";
       position: absolute;
-      background: inherit;
+      background: rgba(255,255,255,0.92);
       border-radius: 50%;
     }
 
-    .cloud-shape::before {
-      width: 140px;
-      height: 140px;
+    .cloud::before {
+      width: 120px;
+      height: 120px;
       left: 70px;
-      top: -45px;
+      top: -40px;
     }
 
-    .cloud-shape::after {
-      width: 170px;
-      height: 170px;
-      right: 84px;
-      top: -52px;
+    .cloud::after {
+      width: 150px;
+      height: 150px;
+      right: 60px;
+      top: -50px;
     }
 
-    .cloud-copy {
+    .cloud-inner {
       position: relative;
-      z-index: 2;
-      text-align: center;
-      padding-top: 28px;
+      z-index: 1;
     }
 
-    .cloud-copy .aria-logo {
-      font-size: clamp(3.2rem, 4vw, 4.5rem);
+    .cloud .aria-logo {
+      font-size: 4rem;
     }
 
-    .cloud-copy p {
-      margin: 6px auto 0;
-      max-width: 360px;
-      font-size: 1.1rem;
-      line-height: 1.55;
-    }
-
-    .stroller-card {
-      position: absolute;
-      right: 24px;
-      top: 20px;
-      width: 190px;
-      background: linear-gradient(180deg, rgba(227,240,229,0.7), rgba(255,255,255,0.3));
-      border-radius: 28px;
-      padding: 18px;
-      transform: rotate(5deg);
-      box-shadow: var(--shadow);
-    }
-
-    .stroller-illustration {
+    .stroller-box {
+      margin: 42px auto 0;
+      width: min(320px, 90%);
+      height: 220px;
       position: relative;
-      width: 100%;
-      height: 180px;
     }
 
     .stroller-shell {
       position: absolute;
-      top: 15px;
-      left: 32px;
-      width: 108px;
-      height: 66px;
-      border-radius: 78px 78px 34px 34px;
-      background: linear-gradient(180deg, #bfd4b9, #90aa85);
-      border: 4px solid rgba(255,255,255,0.6);
+      left: 88px;
+      top: 16px;
+      width: 145px;
+      height: 90px;
+      border-radius: 90px 90px 36px 36px;
+      background: linear-gradient(180deg, #c5d8bf, #93aa89);
+      border: 4px solid rgba(255,255,255,0.75);
     }
 
     .stroller-seat {
       position: absolute;
-      top: 28px;
-      left: 58px;
-      width: 70px;
-      height: 54px;
-      border-radius: 42px 42px 18px 18px;
-      background: linear-gradient(180deg, #f3e0cc, #ead0b2);
+      left: 120px;
+      top: 35px;
+      width: 92px;
+      height: 70px;
+      border-radius: 52px 52px 18px 18px;
+      background: linear-gradient(180deg, #f0dfcb, #e8ceb0);
       transform: rotate(12deg);
-      border: 3px solid rgba(255,255,255,0.75);
+      border: 3px solid rgba(255,255,255,0.85);
     }
 
     .stroller-handle {
       position: absolute;
-      top: 8px;
-      right: 12px;
-      width: 42px;
-      height: 80px;
-      border: 4px solid #c58d5f;
+      right: 34px;
+      top: 0;
+      width: 54px;
+      height: 110px;
+      border: 5px solid #c09164;
       border-left: none;
       border-bottom: none;
-      border-radius: 0 60px 0 0;
+      border-radius: 0 80px 0 0;
     }
 
-    .stroller-leg-left,
-    .stroller-leg-right {
+    .leg {
       position: absolute;
-      bottom: 40px;
-      width: 4px;
-      background: #b68f62;
-      height: 62px;
+      width: 5px;
+      height: 84px;
+      background: #b58c62;
+      bottom: 32px;
       transform-origin: top center;
     }
 
-    .stroller-leg-left { left: 74px; transform: rotate(28deg); }
-    .stroller-leg-right { left: 112px; transform: rotate(-20deg); }
+    .leg.left { left: 135px; transform: rotate(28deg); }
+    .leg.right { left: 195px; transform: rotate(-20deg); }
 
     .wheel {
       position: absolute;
-      bottom: 14px;
-      width: 28px;
-      height: 28px;
+      bottom: 0;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: radial-gradient(circle at 50% 50%, #c7d5ef 0 28%, #58668d 32% 60%, #a6b4d1 62%);
+      background: radial-gradient(circle at center, #cad6ee 0 26%, #59698c 30% 62%, #acb9d4 66%);
     }
 
-    .wheel.left { left: 56px; }
-    .wheel.right { left: 114px; }
+    .wheel.left { left: 112px; }
+    .wheel.right { left: 196px; }
 
-    .photo-strip {
-      position: absolute;
-      left: 26px;
-      right: 26px;
-      bottom: 24px;
+    .polaroids {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 14px;
+      margin-top: 34px;
     }
 
     .polaroid {
-      background: #f4efe7;
-      border: 1px solid rgba(0,0,0,0.04);
-      border-radius: 4px;
+      background: #f5efe8;
+      border-radius: 6px;
       padding: 10px 10px 16px;
-      box-shadow: 0 16px 30px rgba(64, 47, 71, 0.12);
-      transform: rotate(calc(var(--r, 0) * 1deg));
-    }
-
-    .polaroid .shot {
-      aspect-ratio: 1 / 1.06;
-      border-radius: 2px;
-      background: linear-gradient(135deg, #d9b6b2, #7d4f48 46%, #f2d7ca 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .polaroid .shot::before {
-      content: "";
-      position: absolute;
-      inset: 10% 18% 18% 18%;
-      border-radius: 50% 50% 48% 48%;
-      background: rgba(255,255,255,0.42);
-      filter: blur(2px);
-    }
-
-    .polaroid .shot::after {
-      content: "";
-      position: absolute;
-      width: 42%;
-      height: 42%;
-      border-radius: 50%;
-      background: rgba(246,230,218,0.65);
-      top: 24%;
-      left: 28%;
-    }
-
-    .polaroid span {
-      display: block;
+      box-shadow: 0 12px 30px rgba(64,47,71,0.12);
       text-align: center;
-      margin-top: 10px;
       font-size: 0.95rem;
+    }
+
+    .polaroid-shot {
+      aspect-ratio: 1 / 1.05;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #d6b1ac, #83554e 45%, #f3d8cc);
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 44px 0 88px;
     }
 
     .section-title {
       margin: 0 0 14px;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
       line-height: 1.02;
       letter-spacing: -0.02em;
     }
 
-    .section-copy {
-      max-width: 700px;
-      margin: 0 0 38px;
-      font-size: 1.08rem;
-      line-height: 1.8;
-      opacity: 0.9;
-    }
-
-    .problem-grid,
-    .features-grid,
-    .story-grid,
-    .contact-grid,
-    .footer-grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .problem-grid {
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-    }
-
-    .card {
-      position: relative;
-      background: var(--card);
-      border: 1px solid rgba(143,155,125,0.14);
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .magnify {
-      position: relative;
-      min-height: 430px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, rgba(236,245,241,0.88), rgba(255,255,255,0.78));
-    }
-
-    .magnify-ring {
-      width: min(88%, 440px);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: linear-gradient(180deg, rgba(222,239,251,0.92), rgba(250,252,255,0.88));
-      border: 16px solid rgba(132,144,165,0.5);
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 48px;
-      font-size: clamp(1.45rem, 2vw, 2rem);
-      line-height: 1.55;
-    }
-
-    .magnify::after {
-      content: "";
-      position: absolute;
-      width: 138px;
-      height: 24px;
-      background: rgba(132,144,165,0.45);
-      border-radius: 999px;
-      bottom: 40px;
-      right: 52px;
-      transform: rotate(-38deg);
-    }
-
-    .problem-points {
-      display: grid;
-      gap: 16px;
-    }
-
-    .point {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 16px 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.55);
-    }
-
-    .point-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #f5bcc3, #b3cef1);
-      color: white;
-      flex: 0 0 auto;
-    }
-
-    .features-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .feature h3,
-    .story-card h3,
-    .contact-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.45rem;
-    }
-
-    .feature p,
-    .story-card p,
-    .contact-card p,
-    .point p,
-    .footer-copy,
-    .bullet-list li,
-    .mini-note {
-      font-size: 1rem;
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    .feature-visual {
-      width: 72px;
-      height: 72px;
-      border-radius: 22px;
-      margin-bottom: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(202,166,219,0.28), rgba(125,183,232,0.24));
-      font-size: 28px;
-    }
-
-    .opportunity {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .framed-photo {
-      max-width: 320px;
-      background: #f4efe7;
-      padding: 12px 12px 20px;
-      border-radius: 4px;
-      box-shadow: var(--shadow);
-      transform: rotate(-2deg);
-    }
-
-    .framed-photo .image {
-      aspect-ratio: 1 / 0.95;
-      background: linear-gradient(135deg, #d5afab, #8f5f57 44%, #f6d9cf);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .framed-photo .image::before,
-    .framed-photo .image::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(248,239,229,0.65);
-    }
-
-    .framed-photo .image::before {
-      width: 42%;
-      height: 42%;
-      top: 16%;
-      left: 14%;
-    }
-
-    .framed-photo .image::after {
-      width: 36%;
-      height: 36%;
-      top: 24%;
-      right: 16%;
-    }
-
-    .note-card {
-      justify-self: center;
-      max-width: 540px;
-      background: #efe0f4;
-      border-radius: 28px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .note-card strong {
-      display: block;
-      font-size: clamp(1.8rem, 2.3vw, 2.5rem);
-      line-height: 1.35;
-      font-weight: 500;
-    }
-
-    .story-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .story-photo {
-      aspect-ratio: 1 / 1.1;
-      background: linear-gradient(135deg, #d7b1ac, #7f584f 45%, #f2d4c7 100%);
-      border-radius: 18px;
-      margin-bottom: 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .story-photo::before {
-      content: "";
-      position: absolute;
-      width: 38%;
-      height: 38%;
-      border-radius: 50%;
-      background: rgba(250,239,230,0.68);
-      top: 18%;
-      left: 18%;
-    }
-
-    .story-photo::after {
-      content: "";
-      position: absolute;
-      width: 32%;
-      height: 32%;
-      border-radius: 50%;
-      background: rgba(252,243,235,0.6);
-      bottom: 18%;
-      right: 18%;
-    }
-
-    .story-card ul {
-      margin: 16px 0 0;
-      padding-left: 18px;
-    }
-
+    .grid-2,
+    .grid-3,
     .contact-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid-2 {
       grid-template-columns: 1fr 1fr;
       align-items: stretch;
     }
 
-    .contact-card {
-      min-height: 100%;
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .contact-card form {
+    .card {
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .quote-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 320px;
+      font-size: 1.6rem;
+      line-height: 1.6;
+      background: linear-gradient(180deg, rgba(234,245,238,0.88), rgba(255,255,255,0.82));
+    }
+
+    .feature-icon {
+      width: 68px;
+      height: 68px;
       display: grid;
-      gap: 14px;
-      margin-top: 18px;
+      place-items: center;
+      border-radius: 22px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(202,166,219,0.25), rgba(132,185,231,0.24));
+      font-size: 28px;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
     }
 
     .input {
       width: 100%;
-      border: 1px solid rgba(143,155,125,0.16);
-      background: rgba(255,255,255,0.76);
-      border-radius: 18px;
       padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.85);
+      margin-bottom: 12px;
       font-size: 1rem;
-      outline: none;
-    }
-
-    .input:focus {
-      border-color: rgba(125,183,232,0.65);
-      box-shadow: 0 0 0 4px rgba(125,183,232,0.12);
-    }
-
-    textarea.input {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .mini-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .mini-badge {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.68);
-      border: 1px solid rgba(143,155,125,0.14);
-      font-size: 0.94rem;
     }
 
     .footer {
-      padding: 28px 0 48px;
+      padding: 10px 0 40px;
     }
 
-    .footer-grid {
-      grid-template-columns: 1fr auto;
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       gap: 16px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 24px;
     }
 
-    .footer-copy {
-      opacity: 0.76;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    @media (max-width: 1060px) {
+    @media (max-width: 980px) {
       .hero-grid,
-      .problem-grid,
-      .opportunity,
-      .contact-grid,
-      .features-grid,
-      .story-grid {
+      .grid-2,
+      .grid-3,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-visual {
-        min-height: 700px;
-      }
-
-      .stats { grid-template-columns: 1fr; }
-      .cloud-card { inset: 30px 0 0; }
-      .framed-photo { margin: 0 auto; }
-      .note-card { max-width: unset; }
+      .hero-card { min-height: auto; }
     }
 
-    @media (max-width: 760px) {
-      .nav-inner {
-        min-height: 72px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 28px;
-      }
-
-      h1 { font-size: 2.75rem; }
-      .hero p,
-      .section-copy,
-      .magnify-ring,
-      .point p,
-      .feature p,
-      .story-card p,
-      .contact-card p,
-      .footer-copy,
-      .bullet-list li { font-size: 0.98rem; }
-
-      .hero-visual {
-        min-height: 620px;
-      }
-
-      .cloud-card {
-        padding: 20px;
-      }
-
-      .photo-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .magnify {
-        min-height: 360px;
-      }
-
-      .magnify-ring {
-        padding: 32px;
-        border-width: 12px;
-      }
-
-      .contact-grid,
-      .footer-grid { grid-template-columns: 1fr; }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
+      .polaroids { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Primary">
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <div class="aria-logo">Aria</div>
+        <div class="brand-sub">Comfort in every climate</div>
+      </a>
+      <div class="nav-links">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#story">Story</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-secondary" href="#contact">Request early access</a>
+      </div>
+    </div>
+  </nav>
 
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Inspired by your Aria pitch deck</div>
+          <h1>Comfort in every climate.</h1>
+          <p>
+            Aria is a premium stroller concept built around a simple promise: babies should stay safe,
+            calm, and comfortable in both hot and cold weather. This landing page uses the same soft,
+            pastel, dreamy feel from your deck while turning it into a real startup website.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Join the waitlist</a>
+            <a class="btn btn-secondary" href="#solution">Explore the concept</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="cloud">
+            <div class="cloud-inner">
+              <div class="aria-logo">Aria</div>
+              <p>Soft, calm, premium design for modern parents.</p>
+            </div>
+          </div>
+          <div class="stroller-box">
+            <div class="stroller-shell"></div>
+            <div class="stroller-seat"></div>
+            <div class="stroller-handle"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+          </div>
+          <div class="polaroids">
+            <div class="polaroid">
+              <div class="polaroid-shot"></div>
+              Comfort-first
+            </div>
+            <div class="polaroid">
+              <div class="polaroid-shot"></div>
+              Parent peace of mind
+            </div>
+            <div class="polaroid">
+              <div class="polaroid-shot"></div>
+              Premium innovation
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="wrap">
+        <h2 class="section-title">The problem Aria is designed to solve</h2>
+        <p class="section-copy">
+          Babies can become uncomfortable in hot or cold weather, and parents often have to guess what is wrong.
+          Aria turns that pain point into a clear brand promise built around comfort, prevention, and peace of mind.
+        </p>
+        <div class="grid-2">
+          <div class="card quote-card">
+            Babies cannot tell you when they are too hot or too cold, but Aria is designed to respond to that need.
+          </div>
+          <div class="card">
+            <h3>Why it matters</h3>
+            <p>Traditional stroller brands usually compete on features, folding, or storage. Aria introduces a different angle: climate-focused comfort.</p>
+            <ul>
+              <li>Helps frame the brand around temperature awareness and baby comfort</li>
+              <li>Creates emotional reassurance for parents</li>
+              <li>Makes the concept feel more thoughtful and premium</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solution">
+      <div class="wrap">
+        <h2 class="section-title">A softer, smarter solution</h2>
+        <p class="section-copy">
+          In your deck, Aria is presented as an all-in-one modular stroller and car seat combination with temperature-regulating ideas. This section translates that into clean website language.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <div class="feature-icon">🌤</div>
+            <h3>Climate comfort</h3>
+            <p>Built around the idea of helping babies stay more comfortable in changing weather conditions.</p>
+          </div>
+          <div class="card">
+            <div class="feature-icon">🛞</div>
+            <h3>All-in-one ease</h3>
+            <p>Positioned as a seamless stroller and car-seat concept designed for everyday parenting movement.</p>
+          </div>
+          <div class="card">
+            <div class="feature-icon">✨</div>
+            <h3>Premium identity</h3>
+            <p>Soft pastels, elegant typography, and calming visuals make the brand feel polished and memorable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="wrap">
+        <h2 class="section-title">The story behind Aria</h2>
+        <p class="section-copy">
+          One of the strongest parts of your pitch is that the concept feels personal. This section keeps that tone and turns it into a clear founder-story moment for the website.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Built from a real need</h3>
+            <p>Aria feels grounded in a real parenting challenge, which makes the concept more believable and emotionally resonant.</p>
+          </div>
+          <div class="card">
+            <h3>Designed to feel calm</h3>
+            <p>The pastel look, rounded shapes, and soft tone create a baby-centered identity that already stands out from typical stroller branding.</p>
+          </div>
+          <div class="card">
+            <h3>Ready for launch</h3>
+            <p>This homepage can work as a pitch companion, an early-access waitlist, or the starting point for a branded product website.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2 class="section-title">Turn the pitch into a real landing page</h2>
+        <p class="section-copy">
+          You can use this section for investor interest, early signups, retailer outreach, or general brand contact.
+        </p>
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Request updates</h3>
+            <p>Use this for a waitlist or “stay in the loop” signup.</p>
+            <input class="input" type="text" placeholder="Your name" />
+            <input class="input" type="email" placeholder="Email address" />
+            <a class="btn btn-primary" href="#top">Join the waitlist</a>
+          </div>
+          <div class="card">
+            <h3>Pitch-ready notes</h3>
+            <p>Replace the placeholder logo with your real Aria logo file, and add real deck images when you are ready.</p>
+            <ul>
+              <li>Add the exact Aria logo as a transparent PNG or SVG</li>
+              <li>Replace placeholder visuals with real baby or stroller images from the deck</li>
+              <li>Connect the form to a real email platform later</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <div class="aria-logo">Aria</div>
+        <p>Comfort in every climate.</p>
+      </div>
+      <a class="btn btn-secondary" href="#top">Back to top</a>
+    </div>
+  </footer>
+</body>
+</html>
